@@ -1,0 +1,5 @@
+﻿  Player.cpp
+  test_3333.cpp
+C:\Users\Falling\source\repos\test_3333\test_3333\test_3333.cpp(10,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Создание кода...
+  test_3333.vcxproj -> C:\Users\Falling\source\repos\test_3333\Debug\test_3333.exe
