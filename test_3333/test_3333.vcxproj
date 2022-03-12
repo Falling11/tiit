@@ -142,7 +142,7 @@
     <ClCompile Include="FootBallField.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Team.cpp" />
-    <ClCompile Include="test_3333.cpp" />
+    <ClCompile Include="Start.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FootBallField.h" />
