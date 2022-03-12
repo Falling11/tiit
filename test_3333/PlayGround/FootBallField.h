@@ -1,5 +1,6 @@
 #pragma once
-#include "Team.h"
+//enter here your path to this file, just replace username and directory name
+#include "/Users/deadm/source/repos/TIIT/test_3333/TeamMembers/Team.h"
 
 struct Ball
 {
