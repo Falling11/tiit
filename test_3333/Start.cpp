@@ -10,7 +10,7 @@ using namespace std;
 
 enum MagicConst
 {
-	AMOUNTGAMES = 1000,
+	AMOUNTGAMES = 500,
 };
 
 struct Score
@@ -57,15 +57,15 @@ int main()
 
 void temporary(Team& team, uint16_t& own, uint16_t& enemy)
 {
-	 uint16_t counter{ 0 };
+
+	uint16_t counter{ 0 };
 	while (counter<AMOUNTGAMES)
 	{
+
 		Player ourFoot = *team._team[1 + rand() % 10];
 		own = ourFoot.tryTakeBall();
 		std::this_thread::sleep_for(1ms);
 
-
-		//lock_guard<mutex> lock(globalMu);
 		globalMu.lock();
 		if(ball==StatusBall::NONE)
 		if (own > enemy)
@@ -95,6 +95,5 @@ void temporary(Team& team, uint16_t& own, uint16_t& enemy)
 			own;
 		}
 		globalMu.unlock();
-		
 	}
 }
