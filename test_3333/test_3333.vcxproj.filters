@@ -18,24 +18,18 @@
     <ClCompile Include="Start.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="TeamMembers/Player.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Team.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="FootBallField.cpp">
+    <ClCompile Include="TeamMembers/Team.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="TeamMembers/Player.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Team.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="FootBallField.h">
+    <ClInclude Include="TeamMembers/Team.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
