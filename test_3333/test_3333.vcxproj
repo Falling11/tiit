@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,13 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="PlayGround/FootBallField.cpp" />
     <ClCompile Include="TeamMembers/Player.cpp" />
     <ClCompile Include="TeamMembers/Team.cpp" />
     <ClCompile Include="Start.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PlayGround/FootBallField.h" />
     <ClInclude Include="TeamMembers/Player.h" />
     <ClInclude Include="TeamMembers/Team.h" />
   </ItemGroup>
