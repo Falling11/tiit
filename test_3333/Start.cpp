@@ -57,20 +57,24 @@ int main()
 
 void temporary(Team& team, uint16_t& own, uint16_t& enemy)
 {
-	static uint16_t counter{ 0 };
+	 uint16_t counter{ 0 };
 	while (counter<AMOUNTGAMES)
 	{
 		Player ourFoot = *team._team[1 + rand() % 10];
 		own = ourFoot.tryTakeBall();
 		std::this_thread::sleep_for(1ms);
 
+
+		//lock_guard<mutex> lock(globalMu);
 		globalMu.lock();
 		if(ball==StatusBall::NONE)
 		if (own > enemy)
 		{
 			ball = StatusBall::WITHPLAYER;
-			cout << this_thread::get_id() << "<-- Team " + std::string(team.getName()) + " won!\n";
+			cout << this_thread::get_id() << "<-- Team " + std::string(team.getName()) + " won!      ";
+			cout << "Chance " + std::string(team.getName()) + " is " + std::to_string(own) + " vs " + std::to_string(enemy) << endl;
 			++team;		
+			std::this_thread::sleep_for(5ms);
 		}
 		else if (own < enemy)
 		{
@@ -80,16 +84,17 @@ void temporary(Team& team, uint16_t& own, uint16_t& enemy)
 		{
 			cout << this_thread::get_id() << "<--TIER!\n";
 		}
-		globalMu.unlock();
-
+		//globalMu.unlock();
+		
 		++counter;
-		globalMu.lock();
+		//obalMu.lock();
 		if (ball != StatusBall::NONE)
 		{
 			ball = StatusBall::NONE;
+			enemy;
+			own;
 		}
 		globalMu.unlock();
-
-		cout << endl;
+		
 	}
 }
