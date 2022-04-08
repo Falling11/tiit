@@ -23,7 +23,6 @@ private:
 	* @brief This struct includes coordinates of player
 	*/
 
-	bool _hasBall;
 	uint16_t _speed;
 	uint16_t _possibiltyToGoal;
 	uint16_t _chanceWinBall;

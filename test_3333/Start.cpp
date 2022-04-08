@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include <vector>
 #include <string>
 #include <ctime>
 #include <thread>
@@ -36,6 +35,8 @@ Team one("SPARTAK"), two("UGANDA");
 void temporary(Team& team, uint16_t&, uint16_t&);
 
 
+
+
 int main()
 {
 	srand(time(NULL) * 1000);
@@ -61,42 +62,51 @@ uint16_t counter{ 0 };
 void temporary(Team& team, uint16_t& own, uint16_t& enemy)
 {
 
-	
-	while (counter<AMOUNTGAMES)
+	while (counter < AMOUNTGAMES)
 	{
+		ball = StatusBall::NONE;
 
+		//globalMu.lock();
+		std::this_thread::sleep_for(10ms);
 		Player ourFoot = *team._team[1 + rand() % 10];
 		own = ourFoot.tryTakeBall();
-		std::this_thread::sleep_for(100ms);
+		std::this_thread::sleep_for(10ms);
+		//globalMu.unlock();
 
 		globalMu.lock();
-		if(ball==StatusBall::NONE)
+		//if (ball == StatusBall::NONE) {
+
 		if (own > enemy)
 		{
 			ball = StatusBall::WITHPLAYER;
 			cout << this_thread::get_id() << "<-- Team " + std::string(team.getName()) + " won!      ";
 			cout << "Chance " + std::string(team.getName()) + " is " + std::to_string(own) + " vs " + std::to_string(enemy) << endl;
-			++team;		
-			std::this_thread::sleep_for(5ms);
+			++team;
+			
 		}
 		else if (own < enemy)
 		{
+			ball = StatusBall::WITHPLAYER;
+			std::this_thread::sleep_for(1s);
 			cout << this_thread::get_id() << "<-- Team " + std::string(team.getName()) + " lost!\n";
+			
 		}
 		else
 		{
 			cout << this_thread::get_id() << "<--TIER!\n";
 		}
-		//globalMu.unlock();
-		
+
+		//else {}
+
 		++counter;
-		//obalMu.lock();
-		if (ball != StatusBall::NONE)
+
+		/*if (ball != StatusBall::NONE)
 		{
 			ball = StatusBall::NONE;
 			enemy;
 			own;
-		}
+		}*/
 		globalMu.unlock();
+		std::this_thread::sleep_for(5ms);
 	}
 }
