@@ -48,6 +48,7 @@ int main()
 		teamOne(temporary, std::ref(one), std::ref(firstTeam), std::ref(secondTeam)),
 		teamTwo(temporary, std::ref(two), std::ref(secondTeam), std::ref(firstTeam));
 
+
 	teamOne.join();
 	teamTwo.join();
 
@@ -55,16 +56,18 @@ int main()
 	return 0;
 }
 
+uint16_t counter{ 0 };
+
 void temporary(Team& team, uint16_t& own, uint16_t& enemy)
 {
 
-	uint16_t counter{ 0 };
+	
 	while (counter<AMOUNTGAMES)
 	{
 
 		Player ourFoot = *team._team[1 + rand() % 10];
 		own = ourFoot.tryTakeBall();
-		std::this_thread::sleep_for(1ms);
+		std::this_thread::sleep_for(100ms);
 
 		globalMu.lock();
 		if(ball==StatusBall::NONE)
